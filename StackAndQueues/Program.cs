@@ -9,10 +9,13 @@ namespace QueueLinkedList
             //creating object stack class
             QueueLinkedList queue = new QueueLinkedList();
             //calling Enquue method
-            queue.Enqueue(56);
-            queue.Enqueue(30);
-            queue.Enqueue(70);
+            queue.Enqueve(56);
+            queue.Enqueve(30);
+            queue.Enqueve(70);
             //calling display method
+            queue.Display();
+            //calling Dequeue method
+            queue.Dequeue();
             queue.Display();
             Console.ReadLine();
 
