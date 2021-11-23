@@ -1,19 +1,19 @@
 ﻿using System;
 
-namespace StackLinkedList
+namespace QueueLinkedList
 {
     class Program
     {
         static void Main(string[] args)
         {
             //creating object stack class
-            StackLinkedList list = new StackLinkedList();
-            //calling push method
-            list.Push(70);
-            list.Push(30);
-            list.Push(56);
+            QueueLinkedList queue = new QueueLinkedList();
+            //calling Enquue method
+            queue.Enqueue(56);
+            queue.Enqueue(30);
+            queue.Enqueue(70);
             //calling display method
-            list.Display();
+            queue.Display();
             Console.ReadLine();
 
         }

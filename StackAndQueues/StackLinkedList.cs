@@ -4,72 +4,49 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StackLinkedList
+namespace QueueLinkedList
 {
-    public class StackLinkedList
+    public class QueueLinkedList
     {
-        internal Node top;
-        //creating push method for adding element in list 
-        //push method is same as add first method in linked list
-        internal void Push(int data)
+        internal Node front;
+        //creating Enqueue method for adding element in list 
+        //Enqueue method is same as add first method in linked list
+        internal void Enqueve(int data)
         {
             //creating node object of Node class
             Node node = new Node(data);
-            //Checking top is null or not
-            if (this.top == null)
+            //Checking front is null or not
+            if (this.front == null)
             {
-                node.next = null;
+                this.front = node;
             }
-            //if this.top is not null then else block will execute
+            //if this.front is not null then else block will execute
             else
             {
-                node.next = this.top;
+                Node temp = front;
+                while (temp.next != null)
+                {
+                    temp = temp.next;
+                }
+                temp.next = node;
             }
-            //linking node
-            this.top = node;
-            //display pushed element in stack
-            Console.WriteLine("{0} pushed into stack", node.data);
+            //display  element in Queue
+            Console.WriteLine("{0} added into Queue", node.data);
         }
         //this method for display
         internal void Display()
         {
             //declaring temp variable
-            Node temp = this.top;
+            Node temp = this.front;
             if (temp == null)
             {
-                Console.WriteLine("Linked list is empty");
+                Console.WriteLine("Queue is empty");
             }
             //while loop running upto temp value will null
             while (temp != null)
             {
                 Console.Write(temp.data + " ");
                 temp = temp.next;
-            }
-        }
-        //
-        internal void Peek()
-        {
-            if (this.top == null)
-                Console.WriteLine("The stack is empty");
-            Console.WriteLine("\n{0} is in the top of stack", this.top.data);
-        }
-        //This method for deleting  the first node of stack
-        internal void Pop()
-        {
-            if (this.top == null)
-                Console.WriteLine("Deletion not possible");
-            //To show deleted element
-            Console.WriteLine("Deleted node from stack : " + this.top.data);
-            this.top = this.top.next;
-        }
-        //This method for deleting each element 
-        internal void IsEmpty()
-        {
-            //while loop repeatedly runs until last elenment is not deleted 
-            while (this.top != null)
-            {
-                Peek();
-                Pop();
             }
         }
     }
